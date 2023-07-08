@@ -61,4 +61,10 @@ const updateWorkout = async (req, res) => {
   }
   res.status(200).json(workout);
 };
-module.exports = { createWorkout, getWorkouts, getWorkout, updateWorkout };
+module.exports = {
+  createWorkout,
+  getWorkouts,
+  getWorkout,
+  updateWorkout,
+  deleteWorkout,
+};
