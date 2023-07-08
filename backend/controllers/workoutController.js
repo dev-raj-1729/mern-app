@@ -2,6 +2,11 @@ const Workout = require("../models/workoutModel");
 
 const mongoose = require("mongoose");
 
+const getWorkouts = async (req, res) => {
+  const workouts = await Workout.find({}).sort({ createdAt: -1 });
+  res.status(200).json(workouts);
+};
+
 const createWorkout = async (req, res) => {
   const { title, reps, load } = req.body;
   try {
@@ -12,4 +17,4 @@ const createWorkout = async (req, res) => {
   }
 };
 
-module.exports = { createWorkout };
+module.exports = { createWorkout, getWorkouts };
