@@ -21,11 +21,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - run: echo "files copied"
+    - run: ls -a
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm-express'
+        cache: 'yarn'
         cache-dependency-path: './backend/package-lock.json'
     - run: cd ./backend
     - run: npm ci
